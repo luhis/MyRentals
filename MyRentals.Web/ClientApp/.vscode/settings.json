@@ -1,0 +1,11 @@
+{
+  "cSpell.words": [
+    "bulma",
+    "consts",
+    "googlelogin",
+    "preact",
+    "realtor",
+    "realtors"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

@@ -1,0 +1,62 @@
+import { h, FunctionComponent } from "preact";
+import { Button, Modal, Field, Label, Input } from "rbx";
+
+import { EditableRealtor } from "../../types/models";
+
+interface Props {
+    realtor: EditableRealtor;
+    save: () => Promise<void>;
+    cancel: () => void;
+    setField: (k: keyof EditableRealtor, val: string) => void;
+}
+
+const ModalComp: FunctionComponent<Props> = ({
+    save,
+    cancel,
+    realtor,
+    setField,
+}) => (
+    <Modal active={true}>
+        <Modal.Background />
+        <Modal.Card>
+            <Modal.Card.Head>
+                <Modal.Card.Title>
+                    {realtor.realtorId === undefined ? "Add" : "Edit"} Realtor
+                </Modal.Card.Title>
+            </Modal.Card.Head>
+            <Modal.Card.Body>
+                <Field>
+                    <Label>Name</Label>
+                    <Input
+                        value={realtor.realtorName}
+                        onChange={(e: any): void =>
+                            setField(
+                                "realtorName",
+                                (e.target as HTMLInputElement).value
+                            )
+                        }
+                    />
+                </Field>
+
+                <Field>
+                    <Label>Email</Label>
+                    <Input
+                        value={realtor.realtorEmail}
+                        onChange={(e: any): void =>
+                            setField(
+                                "realtorEmail",
+                                (e.target as HTMLInputElement).value
+                            )
+                        }
+                    />
+                </Field>
+            </Modal.Card.Body>
+            <Modal.Card.Foot>
+                <Button onClick={save}>Save changes</Button>
+                <Button onClick={cancel}>Close</Button>
+            </Modal.Card.Foot>
+        </Modal.Card>
+    </Modal>
+);
+
+export default ModalComp;
