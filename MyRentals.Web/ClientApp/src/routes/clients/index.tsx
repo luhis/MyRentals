@@ -2,7 +2,7 @@ import { h, Fragment, FunctionComponent } from "preact";
 import { Container, Title, Button } from "rbx";
 import { useState, useEffect } from "preact/hooks";
 
-import ModalComp from "../../components/Clients/Modal";
+import ModalComp from "../../components/clients/Modal";
 import {
     getClients,
     deleteClient,

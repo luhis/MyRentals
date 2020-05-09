@@ -10,7 +10,7 @@ import {
     putRealtor,
     postRealtor,
     deleteRealtor,
-} from "../../api/Realtors";
+} from "../../api/realtors";
 import { useGoogleAuth, GoogleAuth } from "../../components/app";
 import { getAccessToken } from "../../api/api";
 
