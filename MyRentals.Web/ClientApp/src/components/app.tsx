@@ -4,7 +4,6 @@ import { useGoogleLogin } from "react-use-googlelogin";
 import { useContext } from "preact/hooks";
 
 import Home from "../routes/home";
-import Profile from "../routes/profile";
 import NotFoundPage from "../routes/notfound";
 import Header from "./header";
 import Apartments from "../routes/apartments";
@@ -43,8 +42,6 @@ const App: FunctionalComponent = () => {
                     <Route path="/apartments/" component={Apartments} />
                     <Route path="/clients/" component={Clients} />
                     <Route path="/realtors/" component={Realtors} />
-                    <Route path="/profile/" component={Profile} user="me" />
-                    <Route path="/profile/:user" component={Profile} />
                     <NotFoundPage default />
                 </Router>
             </GoogleAuthContext.Provider>
