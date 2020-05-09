@@ -23,7 +23,7 @@ import {
     valueOr,
 } from "../../types/models";
 import { useGoogleAuth, GoogleAuth } from "../../components/app";
-import { getRealtors } from "../../api/Realtors";
+import { getRealtors } from "../../api/realtors";
 import { getAccessToken } from "../../api/api";
 
 interface State {
