@@ -11,17 +11,12 @@ import Clients from "../routes/clients";
 import Realtors from "../routes/realtors";
 
 import "rbx/index.css";
-import { GoogleUser } from "react-use-googlelogin/dist/types";
+import { GoogleAuth } from "../types/models";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
     require("preact/debug");
-}
-
-export interface GoogleAuth {
-    signIn: () => void;
-    googleUser: GoogleUser | null;
 }
 
 const GoogleAuthContext = createContext<GoogleAuth>({
@@ -35,7 +30,7 @@ const App: FunctionalComponent = () => {
     });
     return (
         <div id="app">
-            <GoogleAuthContext.Provider value={googleAuth}>
+            <GoogleAuthContext.Provider value={googleAuth as GoogleAuth}>
                 <Header />
                 <Router>
                     <Route path="/" component={Home} />

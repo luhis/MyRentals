@@ -1,14 +1,14 @@
 {
   "private": true,
-  "name": "my-project",
+  "name": "clientapp",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build  --no-esm",
+    "build": "preact build --no-esm --no-prerender",
     "serve": "sirv build --port 8080 --cors --single",
-    "dev": "npm install && preact watch --no-esm  --template ./src/template.html && echo Starting the development server",
+    "dev": "yarn install && preact watch --no-esm && echo Starting the development server",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "test": "jest"
+    "test": "jest ./tests"
   },
   "husky": {
     "hooks": {

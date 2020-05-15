@@ -1,4 +1,4 @@
-# my-project
+# ClientApp
 
 ## CLI Commands
 *   `npm install`: Installs dependencies

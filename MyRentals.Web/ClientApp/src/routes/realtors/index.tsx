@@ -3,7 +3,12 @@ import { Container, Button, Title } from "rbx";
 import { useState, useEffect } from "preact/hooks";
 
 import Modal from "../../components/realtors/Modal";
-import { Realtor, EditableRealtor, LoadingState } from "../../types/models";
+import {
+    Realtor,
+    EditableRealtor,
+    LoadingState,
+    GoogleAuth,
+} from "../../types/models";
 import RealtorsTable from "../../components/realtors/RealtorsTable";
 import {
     getRealtors,
@@ -11,7 +16,7 @@ import {
     postRealtor,
     deleteRealtor,
 } from "../../api/realtors";
-import { useGoogleAuth, GoogleAuth } from "../../components/app";
+import { useGoogleAuth } from "../../components/app";
 import { getAccessToken } from "../../api/api";
 
 interface State {

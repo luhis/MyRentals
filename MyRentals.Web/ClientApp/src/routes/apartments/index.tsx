@@ -21,8 +21,9 @@ import {
     EditableApartment,
     LoadingState,
     valueOr,
+    GoogleAuth,
 } from "../../types/models";
-import { useGoogleAuth, GoogleAuth } from "../../components/app";
+import { useGoogleAuth } from "../../components/app";
 import { getRealtors } from "../../api/realtors";
 import { getAccessToken } from "../../api/api";
 

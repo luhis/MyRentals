@@ -1,4 +1,4 @@
-import { GoogleAuth } from "../components/app";
+import { GoogleAuth } from "../types/models";
 
 export const throwIfNotOk = (response: Response): void => {
     if (!response.ok) {
@@ -7,6 +7,5 @@ export const throwIfNotOk = (response: Response): void => {
 };
 
 export const getAccessToken = (auth: GoogleAuth): string | undefined => {
-    debugger;
     return auth.googleUser ? auth.googleUser.tokenId : undefined;
 };

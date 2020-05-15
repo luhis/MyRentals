@@ -1,5 +1,10 @@
 import { throwIfNotOk } from "./api";
-import { Client, EditableClient, toApiResponse, ApiResponse } from "../types/models";
+import {
+    Client,
+    EditableClient,
+    toApiResponse,
+    ApiResponse,
+} from "../types/models";
 
 export const getClients = async (
     token: string | undefined
