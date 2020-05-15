@@ -11,6 +11,7 @@ import {
 } from "rbx";
 
 import { Realtor, EditableApartment } from "../../types/models";
+import { OnChange } from "../../types/inputs";
 
 const stringOrFloat = (s: string): string | number => {
     const pattern = /([-])?([0-9]+)/g;
@@ -52,11 +53,8 @@ const ModalX: FunctionComponent<Props> = ({
                         <Label>Name</Label>
                         <Input
                             value={apartment.name}
-                            onChange={(e: any): void =>
-                                setField(
-                                    "name",
-                                    (e.target as HTMLInputElement).value
-                                )
+                            onChange={(e: OnChange): void =>
+                                setField("name", e.target.value)
                             }
                         />
                     </Field>
@@ -64,11 +62,8 @@ const ModalX: FunctionComponent<Props> = ({
                         <Label>Description</Label>
                         <Input
                             value={apartment.description}
-                            onChange={(e: any): void =>
-                                setField(
-                                    "description",
-                                    (e.target as HTMLInputElement).value
-                                )
+                            onChange={(e: OnChange): void =>
+                                setField("description", e.target.value)
                             }
                         />
                     </Field>
@@ -77,13 +72,8 @@ const ModalX: FunctionComponent<Props> = ({
                         <Input
                             value={apartment.floorArea}
                             type="number"
-                            onChange={(e: any): void =>
-                                setField(
-                                    "floorArea",
-                                    parseInt(
-                                        (e.target as HTMLInputElement).value
-                                    )
-                                )
+                            onChange={(e: OnChange): void =>
+                                setField("floorArea", parseInt(e.target.value))
                             }
                         />
                     </Field>
@@ -92,12 +82,10 @@ const ModalX: FunctionComponent<Props> = ({
                         <Input
                             value={apartment.pricePerMonth}
                             type="number"
-                            onChange={(e: any): void =>
+                            onChange={(e: OnChange): void =>
                                 setField(
                                     "pricePerMonth",
-                                    parseInt(
-                                        (e.target as HTMLInputElement).value
-                                    )
+                                    parseInt(e.target.value)
                                 )
                             }
                         />
@@ -108,12 +96,10 @@ const ModalX: FunctionComponent<Props> = ({
                             value={apartment.numberOfRooms}
                             type="number"
                             pattern="[0-9]*"
-                            onChange={(e: any): void =>
+                            onChange={(e: OnChange): void =>
                                 setField(
                                     "numberOfRooms",
-                                    parseInt(
-                                        (e.target as HTMLInputElement).value
-                                    )
+                                    parseInt(e.target.value)
                                 )
                             }
                         />
@@ -124,13 +110,10 @@ const ModalX: FunctionComponent<Props> = ({
                             <Select.Container>
                                 <Select
                                     value={apartment.realtorId}
-                                    onChange={(e: any): void =>
+                                    onChange={(e: OnChange): void =>
                                         setField(
                                             "realtorId",
-                                            parseInt(
-                                                (e.target as HTMLInputElement)
-                                                    .value
-                                            )
+                                            parseInt(e.target.value)
                                         )
                                     }
                                 >
@@ -170,13 +153,10 @@ const ModalX: FunctionComponent<Props> = ({
                                     value={apartment.lat}
                                     type="number"
                                     pattern="([-])?[0-9]*"
-                                    onChange={(e: any): void =>
+                                    onChange={(e: OnChange): void =>
                                         setField(
                                             "lat",
-                                            stringOrFloat(
-                                                (e.target as HTMLInputElement)
-                                                    .value
-                                            )
+                                            stringOrFloat(e.target.value)
                                         )
                                     }
                                 />
@@ -189,13 +169,10 @@ const ModalX: FunctionComponent<Props> = ({
                                     value={apartment.lon}
                                     type="number"
                                     pattern="([-])?[0-9]*"
-                                    onChange={(e: any): void =>
+                                    onChange={(e: OnChange): void =>
                                         setField(
                                             "lon",
-                                            stringOrFloat(
-                                                (e.target as HTMLInputElement)
-                                                    .value
-                                            )
+                                            stringOrFloat(e.target.value)
                                         )
                                     }
                                 />

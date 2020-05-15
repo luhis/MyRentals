@@ -7,3 +7,9 @@ describe("Initial Test of the Header", () => {
         shallow(<Header />);
     });
 });
+
+describe("API Utils tests", () => {
+    test("utzParse", () => {
+        expect(true).toStrictEqual(true);
+    });
+});

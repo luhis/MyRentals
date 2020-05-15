@@ -2,6 +2,7 @@ import { h, FunctionComponent } from "preact";
 import { Button, Modal, Field, Label, Input } from "rbx";
 
 import { EditableRealtor } from "../../types/models";
+import { OnChange } from "../../types/inputs";
 
 interface Props {
     realtor: EditableRealtor;
@@ -29,11 +30,8 @@ const ModalComp: FunctionComponent<Props> = ({
                     <Label>Name</Label>
                     <Input
                         value={realtor.realtorName}
-                        onChange={(e: any): void =>
-                            setField(
-                                "realtorName",
-                                (e.target as HTMLInputElement).value
-                            )
+                        onChange={(e: OnChange): void =>
+                            setField("realtorName", e.target.value)
                         }
                     />
                 </Field>
@@ -42,11 +40,8 @@ const ModalComp: FunctionComponent<Props> = ({
                     <Label>Email</Label>
                     <Input
                         value={realtor.realtorEmail}
-                        onChange={(e: any): void =>
-                            setField(
-                                "realtorEmail",
-                                (e.target as HTMLInputElement).value
-                            )
+                        onChange={(e: OnChange): void =>
+                            setField("realtorEmail", e.target.value)
                         }
                     />
                 </Field>

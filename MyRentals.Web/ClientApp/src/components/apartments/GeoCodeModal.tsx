@@ -5,6 +5,7 @@ import { Button, Modal, Label, Input, Field } from "rbx";
 import { GoogleApiKey } from "../../consts";
 import { Coords } from "../../types/models";
 import { useState } from "preact/hooks";
+import { OnChange } from "../../types/inputs";
 
 Geocode.setApiKey(GoogleApiKey);
 Geocode.setLanguage("en");
@@ -42,10 +43,8 @@ const GeoCodeModalComp: FunctionComponent<Props> = ({
                         <Label>Location</Label>
                         <Input
                             value={location}
-                            onChange={(e: any): void =>
-                                setLocation(
-                                    (e.target as HTMLInputElement).value
-                                )
+                            onChange={(e: OnChange): void =>
+                                setLocation(e.target.value)
                             }
                         />
                     </Field>

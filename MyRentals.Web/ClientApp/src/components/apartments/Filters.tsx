@@ -2,6 +2,7 @@ import { h, FunctionComponent, Fragment } from "preact";
 import { Label, Input, Field, Control } from "rbx";
 
 import { Filters } from "../../types/models";
+import { OnChange } from "../../types/inputs";
 
 interface Props {
     filters: Filters;
@@ -18,11 +19,8 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                 <Input
                     value={filters.floorArea}
                     type="number"
-                    onChange={(e: any): void =>
-                        setValue(
-                            "floorArea",
-                            nullIfEmpty((e.target as HTMLInputElement).value)
-                        )
+                    onChange={(e: OnChange): void =>
+                        setValue("floorArea", nullIfEmpty(e.target.value))
                     }
                 />
             </Control>
@@ -33,11 +31,8 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                 <Input
                     value={filters.pricePerMonth}
                     type="number"
-                    onChange={(e: any): void =>
-                        setValue(
-                            "pricePerMonth",
-                            nullIfEmpty((e.target as HTMLInputElement).value)
-                        )
+                    onChange={(e: OnChange): void =>
+                        setValue("pricePerMonth", nullIfEmpty(e.target.value))
                     }
                 />
             </Control>
@@ -48,11 +43,8 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                 <Input
                     value={filters.numberOfRooms}
                     type="number"
-                    onChange={(e: any): void =>
-                        setValue(
-                            "numberOfRooms",
-                            nullIfEmpty((e.target as HTMLInputElement).value)
-                        )
+                    onChange={(e: OnChange): void =>
+                        setValue("numberOfRooms", nullIfEmpty(e.target.value))
                     }
                 />
             </Control>

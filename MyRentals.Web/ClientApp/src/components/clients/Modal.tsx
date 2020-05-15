@@ -2,6 +2,7 @@ import { h, FunctionComponent } from "preact";
 import { Modal, Button, Field, Label, Input } from "rbx";
 
 import { EditableClient } from "../../types/models";
+import { OnChange } from "../../types/inputs";
 
 interface Props {
     save: () => void;
@@ -29,11 +30,8 @@ const ModalX: FunctionComponent<Props> = ({
                     <Label>Name</Label>
                     <Input
                         value={client.clientName}
-                        onChange={(e: any): void =>
-                            setField(
-                                "clientName",
-                                (e.target as HTMLInputElement).value
-                            )
+                        onChange={(e: OnChange): void =>
+                            setField("clientName", e.target.value)
                         }
                     />
                 </Field>
