@@ -1,14 +1,14 @@
 {
   "private": true,
-  "name": "my-project",
+  "name": "clientapp",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build  --no-esm",
+    "build": "preact build --no-esm --no-prerender",
     "serve": "sirv build --port 8080 --cors --single",
-    "dev": "npm install && preact watch --no-esm  --template ./src/template.html && echo Starting the development server",
+    "dev": "yarn install && preact watch --no-esm && echo Starting the development server",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx}",
-    "test": "jest"
+    "test": "jest ./tests"
   },
   "husky": {
     "hooks": {
@@ -61,19 +61,5 @@
     "ts-loader": "7.0.4",
     "typescript": "3.9.2",
     "typings-for-css-modules-loader": "1.7.0"
-  },
-  "jest": {
-    "preset": "jest-preset-preact",
-    "setupFiles": [
-      "<rootDir>/src/tests/__mocks__/setupTests.ts"
-    ],
-    "testMatch": [
-      "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)(spec|test).[jt]s?(x)"
-    ],
-    "transform": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/__mocks__/fileTransformer.js"
-    },
-    "collectCoverage": true
   }
 }

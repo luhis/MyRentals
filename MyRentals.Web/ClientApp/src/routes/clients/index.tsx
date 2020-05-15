@@ -9,9 +9,14 @@ import {
     putClient,
     postClient,
 } from "../../api/clients";
-import { Client, EditableClient, LoadingState } from "../../types/models";
+import {
+    Client,
+    EditableClient,
+    LoadingState,
+    GoogleAuth,
+} from "../../types/models";
 import ClientsTable from "../../components/clients/ClientsTable";
-import { useGoogleAuth, GoogleAuth } from "../../components/app";
+import { useGoogleAuth } from "../../components/app";
 import { getAccessToken } from "../../api/api";
 
 interface State {
@@ -43,7 +48,7 @@ const Clients: FunctionComponent = () => {
         await populateClientData(auth);
     };
 
-    const save = async (auth: GoogleAuth) => {
+    const save = async (auth: GoogleAuth): Promise<void> => {
         try {
             if (state.editing) {
                 if (state.editing.clientId !== undefined) {

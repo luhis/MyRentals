@@ -1,6 +1,6 @@
 {
-  "name": "my-project",
-  "short_name": "my-project",
+  "name": "ClientApp",
+  "short_name": "ClientApp",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

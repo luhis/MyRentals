@@ -1,3 +1,5 @@
+import { GoogleUser } from "react-use-googlelogin/dist/types";
+
 export interface Apartment {
     readonly apartmentId: number;
     readonly name: string;
@@ -74,3 +76,8 @@ export const toApiResponse = async <T>(
         return { tag: "Error", value: e.toString() };
     }
 };
+
+export interface GoogleAuth {
+    signIn: () => void;
+    googleUser: GoogleUser | null;
+}
