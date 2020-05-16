@@ -35,7 +35,7 @@
     "preact-router": "3.2.1",
     "rbx": "2.2.0",
     "react-geocode": "0.2.1",
-    "react-use-googlelogin": "0.12.1"
+    "react-use-googlelogin": "0.12.3"
   },
   "devDependencies": {
     "@types/jest": "25.2.2",
