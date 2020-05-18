@@ -8923,10 +8923,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-use-googlelogin@0.12.3:
-  version "0.12.3"
-  resolved "https://registry.yarnpkg.com/react-use-googlelogin/-/react-use-googlelogin-0.12.3.tgz#2a437b1d609254f5e16f608925716666be21f0ca"
-  integrity sha512-XERUQXpI/ZrLRAzDFAAuo36uZg/IqON3eizzQfLdZctus2CLIVHvc+KtP025wpEgHaf3oic0BfYjXO8Cmc3oGw==
+react-use-googlelogin@0.12.4:
+  version "0.12.4"
+  resolved "https://registry.yarnpkg.com/react-use-googlelogin/-/react-use-googlelogin-0.12.4.tgz#c852b23f6329cd0f81091b8f38b279061b98d954"
+  integrity sha512-qJXPwiTw3Mr+K7pjbG4TpankQZza39VCzpMIRFf7GgrgiD3hvOJOlHEU4WuNW2U+Sg9sp5i97IPiPNEiv4LmIw==
 
 read-pkg-up@^4.0.0:
   version "4.0.0"
