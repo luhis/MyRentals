@@ -43,6 +43,7 @@ namespace MyRentals.Web
 
             services.AddWeb();
             services.AddPersistence();
+            services.Configure<AdminEmailsSetting>(this.Configuration, o => { o.BindNonPublicProperties = true; });
 
             services.AddAuthentication(x =>
             {

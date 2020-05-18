@@ -81,3 +81,7 @@ export interface GoogleAuth {
     signIn: () => void;
     googleUser: GoogleUser | null;
 }
+
+export interface Access {
+    canViewRealtors: boolean;
+}

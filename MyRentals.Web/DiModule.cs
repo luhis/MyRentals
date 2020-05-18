@@ -13,6 +13,7 @@ namespace MyRentals.Web
         public static void AddWeb(this IServiceCollection collection)
         {
             collection.AddScoped<IAuthorizationHandler, RealtorOrAdminRequirementHandler>();
+            collection.AddSingleton<ISimpleRequirements, SimpleRequirements>();
             collection.AddSingleton(GetDbOptions);
         }
 

@@ -1,34 +1,26 @@
 ﻿namespace MyRentals.Web.Authorization
 {
     using System.Threading.Tasks;
-    using MediatR;
     using Microsoft.AspNetCore.Authorization;
-    using MyRentals.Service.Messages;
     using MyRentals.Web.Tooling;
 
     public class RealtorOrAdminRequirementHandler : AuthorizationHandler<RealtorOrAdminRequirement>
     {
-        private readonly IMediator mediator;
+        private readonly ISimpleRequirements simpleRequirements;
 
-        public RealtorOrAdminRequirementHandler(IMediator mediator)
+        public RealtorOrAdminRequirementHandler(ISimpleRequirements simpleRequirements)
         {
-            this.mediator = mediator;
+            this.simpleRequirements = simpleRequirements;
         }
 
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, RealtorOrAdminRequirement requirement)
         {
+
             var email = context.User.GetEmailAddress();
-            if (requirement.AdminEmailAddresses.Contains(email))
+            var isAdminOrRequirement = await this.simpleRequirements.IsAdminOrRealtor(email);
+            if (isAdminOrRequirement)
             {
                 context.Succeed(requirement);
-            }
-            else
-            {
-                var id = await this.mediator.Send(new GetRealtorId(email));
-                if (id.IsT0)
-                {
-                    context.Succeed(requirement);
-                }
             }
         }
     }
