@@ -78,7 +78,7 @@ export const toApiResponse = async <T>(
 };
 
 export interface GoogleAuth {
-    signIn: () => void;
+    signIn: () => Promise<GoogleUser>;
     googleUser: GoogleUser | null;
 }
 
