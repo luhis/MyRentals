@@ -27,7 +27,7 @@
     "enzyme-adapter-preact-pure": "2.2.0",
     "google-maps-react": "2.0.6",
     "jest-preset-preact": "1.0.0",
-    "preact": "10.4.2",
+    "preact": "10.4.4",
     "preact-cli-plugin-env-vars": "1.2.1",
     "preact-jsx-chai": "3.0.0",
     "preact-markup": "2.0.0",
