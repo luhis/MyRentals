@@ -20,8 +20,9 @@
         [HttpGet]
         public async Task<AccessModel> GetAccess()
         {
-            var realtorOrAdmin = await simpleRequirements.IsAdminOrRealtor(this.User.GetEmailAddress());
-            var admin = simpleRequirements.IsAdmin(this.User.GetEmailAddress());
+            var email = this.User.GetEmailAddress();
+            var realtorOrAdmin = await simpleRequirements.IsAdminOrRealtor(email);
+            var admin = simpleRequirements.IsAdmin(email);
             return new AccessModel(true, realtorOrAdmin, admin);
         }
     }

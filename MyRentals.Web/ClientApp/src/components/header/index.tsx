@@ -24,25 +24,31 @@ const Header: FunctionalComponent = () => {
             <Navbar.Menu>
                 <Navbar.Segment align="start">
                     <Navbar.Item href="/">Home</Navbar.Item>
-                    <Navbar.Item href="/apartments">Apartments</Navbar.Item>
-                    <Navbar.Item href="/clients">Clients</Navbar.Item>
+                    {access.canViewApartments ? (
+                        <Navbar.Item href="/apartments">Apartments</Navbar.Item>
+                    ) : null}
+                    {access.canViewClients ? (
+                        <Navbar.Item href="/clients">Clients</Navbar.Item>
+                    ) : null}
                     {access.canViewRealtors ? (
                         <Navbar.Item href="/realtors">Realtors</Navbar.Item>
                     ) : null}
+                    <Navbar.Item>
+                        <Button
+                            onClick={async (): Promise<void> => {
+                                const user = await signIn();
+                                if (user) {
+                                    setAccess(await getAccess(user.tokenId));
+                                } else {
+                                    console.log(user);
+                                }
+                            }}
+                        >
+                            Sign in with Google
+                        </Button>
+                    </Navbar.Item>
                 </Navbar.Segment>
             </Navbar.Menu>
-            <Button
-                onClick={async (): Promise<void> => {
-                    const user = await signIn();
-                    if (user) {
-                        setAccess(await getAccess(user.tokenId));
-                    } else {
-                        console.log(user);
-                    }
-                }}
-            >
-                Sign in with Google
-            </Button>
         </Navbar>
     );
 };

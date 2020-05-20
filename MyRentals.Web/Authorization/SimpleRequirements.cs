@@ -14,7 +14,7 @@
             this.adminEmails = adminEmails.Value;
         }
 
-        private AdminEmailsSetting adminEmails { get; }
+        private readonly AdminEmailsSetting adminEmails;
         private readonly IMediator mediator;
 
         bool ISimpleRequirements.IsAdmin(string emailAddress)
@@ -24,7 +24,6 @@
 
         async Task<bool> ISimpleRequirements.IsAdminOrRealtor(string emailAddress)
         {
-
             return this.adminEmails.AdminEmails.Contains(emailAddress) || (await this.mediator.Send(new GetRealtorId(emailAddress))).IsT0;
         }
     }

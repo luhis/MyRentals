@@ -9,9 +9,9 @@ import Header from "./header";
 import Apartments from "../routes/apartments";
 import Clients from "../routes/clients";
 import Realtors from "../routes/realtors";
+import { GoogleAuth, Access } from "../types/models";
 
 import "rbx/index.css";
-import { GoogleAuth, Access } from "../types/models";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 if ((module as any).hot) {
@@ -27,7 +27,11 @@ const GoogleAuthContext = createContext<GoogleAuth>({
 }); // Not necessary, but recommended.
 
 const AccessContext = createContext<[Access, StateUpdater<Access>]>([
-    { canViewRealtors: false },
+    {
+        canViewApartments: false,
+        canViewClients: false,
+        canViewRealtors: false,
+    },
     (_) => undefined,
 ]);
 
@@ -35,7 +39,11 @@ const App: FunctionalComponent = () => {
     const googleAuth = useGoogleLogin({
         clientId: process.env.PREACT_APP_GOOGLE_CLIENT_ID as string, // Your clientID from Google.
     });
-    const access = useState<Access>({ canViewRealtors: false });
+    const access = useState<Access>({
+        canViewApartments: true,
+        canViewClients: false,
+        canViewRealtors: false,
+    });
     return (
         <div id="app">
             <AccessContext.Provider value={access}>

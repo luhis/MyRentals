@@ -15,7 +15,6 @@
 
         protected override async Task HandleRequirementAsync(AuthorizationHandlerContext context, RealtorOrAdminRequirement requirement)
         {
-
             var email = context.User.GetEmailAddress();
             var isAdminOrRequirement = await this.simpleRequirements.IsAdminOrRealtor(email);
             if (isAdminOrRequirement)
