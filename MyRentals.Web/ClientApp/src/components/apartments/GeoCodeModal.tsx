@@ -1,10 +1,10 @@
 import { h, FunctionComponent } from "preact";
 import Geocode from "react-geocode";
 import { Button, Modal, Label, Input, Field } from "rbx";
+import { useState } from "preact/hooks";
 
 import { GoogleApiKey } from "../../consts";
 import { Coords } from "../../types/models";
-import { useState } from "preact/hooks";
 import { OnChange } from "../../types/inputs";
 
 Geocode.setApiKey(GoogleApiKey);

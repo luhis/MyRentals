@@ -92,10 +92,10 @@ const Apartments: FunctionComponent = () => {
         populateApartmentData(auth);
     }, [auth]);
 
-    const setValue = (name: keyof Filters, val: string | number): void => {
+    const setValue = (name: Partial<Filters>): void => {
         setState((s: State) => ({
             ...s,
-            filters: { ...s.filters, [name]: val },
+            filters: { ...s.filters, ...name },
         }));
     };
     const setField = (field: Partial<EditableApartment>): void => {

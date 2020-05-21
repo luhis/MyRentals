@@ -6,7 +6,7 @@ import { OnChange } from "../../types/inputs";
 
 interface Props {
     filters: Filters;
-    setValue: (k: keyof Filters, v: string | number) => void;
+    setValue: (k: Partial<Filters>) => void;
 }
 
 const nullIfEmpty = (s: string): string | number =>
@@ -20,7 +20,7 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                     value={filters.floorArea}
                     type="number"
                     onChange={(e: OnChange): void =>
-                        setValue("floorArea", nullIfEmpty(e.target.value))
+                        setValue({ floorArea: nullIfEmpty(e.target.value) })
                     }
                 />
             </Control>
@@ -32,7 +32,7 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                     value={filters.pricePerMonth}
                     type="number"
                     onChange={(e: OnChange): void =>
-                        setValue("pricePerMonth", nullIfEmpty(e.target.value))
+                        setValue({ pricePerMonth: nullIfEmpty(e.target.value) })
                     }
                 />
             </Control>
@@ -44,7 +44,7 @@ const FiltersComp: FunctionComponent<Props> = ({ filters, setValue }) => (
                     value={filters.numberOfRooms}
                     type="number"
                     onChange={(e: OnChange): void =>
-                        setValue("numberOfRooms", nullIfEmpty(e.target.value))
+                        setValue({ numberOfRooms: nullIfEmpty(e.target.value) })
                     }
                 />
             </Control>
