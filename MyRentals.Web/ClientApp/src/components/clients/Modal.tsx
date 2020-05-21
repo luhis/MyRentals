@@ -7,7 +7,7 @@ import { OnChange } from "../../types/inputs";
 interface Props {
     save: () => void;
     cancel: () => void;
-    setField: (s: keyof EditableClient, val: string) => void;
+    setField: (s: Partial<EditableClient>) => void;
     client: EditableClient;
 }
 
@@ -31,7 +31,7 @@ const ModalX: FunctionComponent<Props> = ({
                     <Input
                         value={client.clientName}
                         onChange={(e: OnChange): void =>
-                            setField("clientName", e.target.value)
+                            setField({ clientName: e.target.value })
                         }
                     />
                 </Field>

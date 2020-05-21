@@ -8,7 +8,7 @@ interface Props {
     realtor: EditableRealtor;
     save: () => Promise<void>;
     cancel: () => void;
-    setField: (k: keyof EditableRealtor, val: string) => void;
+    setField: (k: Partial<EditableRealtor>) => void;
 }
 
 const ModalComp: FunctionComponent<Props> = ({
@@ -31,7 +31,7 @@ const ModalComp: FunctionComponent<Props> = ({
                     <Input
                         value={realtor.realtorName}
                         onChange={(e: OnChange): void =>
-                            setField("realtorName", e.target.value)
+                            setField({ realtorName: e.target.value })
                         }
                     />
                 </Field>
@@ -41,7 +41,7 @@ const ModalComp: FunctionComponent<Props> = ({
                     <Input
                         value={realtor.realtorEmail}
                         onChange={(e: OnChange): void =>
-                            setField("realtorEmail", e.target.value)
+                            setField({ realtorEmail: e.target.value })
                         }
                     />
                 </Field>

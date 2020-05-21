@@ -36,17 +36,28 @@ export interface Filters {
     readonly numberOfRooms: string | number;
 }
 
-export type EditableClient = Omit<Client, "clientId"> & {
-    readonly clientId: number | undefined;
-};
+export type EditableClient = Override<
+    Client,
+    {
+        readonly clientId: number | undefined;
+    }
+>;
 
-export type EditableRealtor = Omit<Realtor, "realtorId"> & {
-    readonly realtorId: number | undefined;
-};
+export type EditableRealtor = Override<
+    Realtor,
+    {
+        readonly realtorId: number | undefined;
+    }
+>;
 
-export type EditableApartment = Omit<Apartment, "apartmentId"> & {
-    readonly apartmentId: number | undefined;
-};
+export type EditableApartment = Override<
+    Apartment,
+    {
+        readonly apartmentId: number | undefined;
+        readonly lat: string | number;
+        readonly lon: string | number;
+    }
+>;
 
 export type ApiResponse<T> =
     | { tag: "Loaded"; value: T }
@@ -88,3 +99,5 @@ export interface Access {
     canViewRealtors: boolean;
     canViewClients: boolean;
 }
+
+type Override<T, P> = P & Omit<T, keyof P>;

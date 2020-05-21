@@ -72,10 +72,10 @@ const Clients: FunctionComponent = () => {
     const setEditing = (client: EditableClient | undefined): void => {
         setState((s) => ({ ...s, editing: client }));
     };
-    const setField = (field: keyof EditableClient, value: string): void => {
+    const setField = (field: Partial<EditableClient>): void => {
         setState((s) => ({
             ...s,
-            editing: { ...s.editing, [field]: value } as EditableClient,
+            editing: { ...s.editing, ...field } as EditableClient,
         }));
     };
 

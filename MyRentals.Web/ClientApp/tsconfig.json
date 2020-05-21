@@ -54,7 +54,10 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "incremental": true,
-        "noEmitOnError": true
+        "noEmitOnError": true,
+        "forceConsistentCasingInFileNames": true,
+        "strictPropertyInitialization": true,
+        "strictFunctionTypes": true
     },
     "include": ["src/**/*.tsx", "src/**/*.ts"]
 }

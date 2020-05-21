@@ -67,10 +67,10 @@ const Realtors: FunctionComponent = () => {
         setState((s) => ({ ...s, editing: realtor }));
     };
 
-    const setField = (field: keyof EditableRealtor, value: string): void => {
+    const setField = (field: Partial<EditableRealtor>): void => {
         setState((s) => ({
             ...s,
-            editing: { ...s.editing, [field]: value } as EditableRealtor,
+            editing: { ...s.editing, ...field } as EditableRealtor,
         }));
     };
     const newRealtor = (): void =>

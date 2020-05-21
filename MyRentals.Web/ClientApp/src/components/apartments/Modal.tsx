@@ -28,7 +28,7 @@ interface Props {
     realtors: readonly Realtor[];
     save: () => Promise<void>;
     cancel: () => void;
-    setField: (k: keyof EditableApartment, val: string | number) => void;
+    setField: (k: Partial<EditableApartment>) => void;
     toggleGeoLocation: () => void;
 }
 
@@ -54,7 +54,7 @@ const ModalX: FunctionComponent<Props> = ({
                         <Input
                             value={apartment.name}
                             onChange={(e: OnChange): void =>
-                                setField("name", e.target.value)
+                                setField({ name: e.target.value })
                             }
                         />
                     </Field>
@@ -63,7 +63,7 @@ const ModalX: FunctionComponent<Props> = ({
                         <Input
                             value={apartment.description}
                             onChange={(e: OnChange): void =>
-                                setField("description", e.target.value)
+                                setField({ description: e.target.value })
                             }
                         />
                     </Field>
@@ -73,7 +73,9 @@ const ModalX: FunctionComponent<Props> = ({
                             value={apartment.floorArea}
                             type="number"
                             onChange={(e: OnChange): void =>
-                                setField("floorArea", parseInt(e.target.value))
+                                setField({
+                                    floorArea: parseInt(e.target.value),
+                                })
                             }
                         />
                     </Field>
@@ -83,10 +85,9 @@ const ModalX: FunctionComponent<Props> = ({
                             value={apartment.pricePerMonth}
                             type="number"
                             onChange={(e: OnChange): void =>
-                                setField(
-                                    "pricePerMonth",
-                                    parseInt(e.target.value)
-                                )
+                                setField({
+                                    pricePerMonth: parseInt(e.target.value),
+                                })
                             }
                         />
                     </Field>
@@ -97,10 +98,9 @@ const ModalX: FunctionComponent<Props> = ({
                             type="number"
                             pattern="[0-9]*"
                             onChange={(e: OnChange): void =>
-                                setField(
-                                    "numberOfRooms",
-                                    parseInt(e.target.value)
-                                )
+                                setField({
+                                    numberOfRooms: parseInt(e.target.value),
+                                })
                             }
                         />
                     </Field>
@@ -111,10 +111,9 @@ const ModalX: FunctionComponent<Props> = ({
                                 <Select
                                     value={apartment.realtorId}
                                     onChange={(e: OnChange): void =>
-                                        setField(
-                                            "realtorId",
-                                            parseInt(e.target.value)
-                                        )
+                                        setField({
+                                            realtorId: parseInt(e.target.value),
+                                        })
                                     }
                                 >
                                     {realtors.map((a) => (
@@ -134,7 +133,7 @@ const ModalX: FunctionComponent<Props> = ({
                             <Checkbox
                                 checked={apartment.isRented}
                                 onChange={(e: any): void =>
-                                    setField("isRented", e.target.checked)
+                                    setField({ isRented: e.target.checked })
                                 }
                             />
                             Is Rented
@@ -154,10 +153,9 @@ const ModalX: FunctionComponent<Props> = ({
                                     type="number"
                                     pattern="([-])?[0-9]*"
                                     onChange={(e: OnChange): void =>
-                                        setField(
-                                            "lat",
-                                            stringOrFloat(e.target.value)
-                                        )
+                                        setField({
+                                            lat: stringOrFloat(e.target.value),
+                                        })
                                     }
                                 />
                             </Field>
@@ -170,10 +168,9 @@ const ModalX: FunctionComponent<Props> = ({
                                     type="number"
                                     pattern="([-])?[0-9]*"
                                     onChange={(e: OnChange): void =>
-                                        setField(
-                                            "lon",
-                                            stringOrFloat(e.target.value)
-                                        )
+                                        setField({
+                                            lon: stringOrFloat(e.target.value),
+                                        })
                                     }
                                 />
                             </Field>

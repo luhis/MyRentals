@@ -28,7 +28,7 @@ const GoogleAuthContext = createContext<GoogleAuth>({
 
 const defaultAccess = {
     canViewApartments: true,
-    canAddApartments: false,
+    canEditApartments: false,
     canViewClients: false,
     canViewRealtors: false,
 };

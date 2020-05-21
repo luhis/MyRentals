@@ -98,13 +98,10 @@ const Apartments: FunctionComponent = () => {
             filters: { ...s.filters, [name]: val },
         }));
     };
-    const setField = (
-        field: keyof EditableApartment,
-        value: string | number
-    ): void => {
+    const setField = (field: Partial<EditableApartment>): void => {
         setState((s: State) => ({
             ...s,
-            editing: { ...s.editing, [field]: value } as EditableApartment,
+            editing: { ...s.editing, ...field } as EditableApartment,
         }));
     };
     const setLatLon = (coords: Coords): void => {
