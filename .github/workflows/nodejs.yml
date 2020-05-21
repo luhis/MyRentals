@@ -24,6 +24,6 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci --prefix ./MyRentals.Web/ClientApp
-    - run: npm run build --if-present --prefix ./MyRentals.Web/ClientApp
-    - run: npm test --prefix ./MyRentals.Web/ClientApp
+    - run: yarn --cwd ./MyRentals.Web/ClientApp install --frozen-lockfile
+    - run: yarn --cwd ./MyRentals.Web/ClientApp build
+    - run: yarn --cwd ./MyRentals.Web/ClientApp test
