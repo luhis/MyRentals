@@ -26,12 +26,15 @@ const GoogleAuthContext = createContext<GoogleAuth>({
     googleUser: null,
 }); // Not necessary, but recommended.
 
+const defaultAccess = {
+    canViewApartments: true,
+    canAddApartments: false,
+    canViewClients: false,
+    canViewRealtors: false,
+};
+
 const AccessContext = createContext<[Access, StateUpdater<Access>]>([
-    {
-        canViewApartments: false,
-        canViewClients: false,
-        canViewRealtors: false,
-    },
+    defaultAccess,
     (_) => undefined,
 ]);
 
@@ -39,11 +42,7 @@ const App: FunctionalComponent = () => {
     const googleAuth = useGoogleLogin({
         clientId: process.env.PREACT_APP_GOOGLE_CLIENT_ID as string, // Your clientID from Google.
     });
-    const access = useState<Access>({
-        canViewApartments: true,
-        canViewClients: false,
-        canViewRealtors: false,
-    });
+    const access = useState<Access>(defaultAccess);
     return (
         <div id="app">
             <AccessContext.Provider value={access}>

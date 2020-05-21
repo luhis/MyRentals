@@ -23,7 +23,7 @@ import {
     valueOr,
     GoogleAuth,
 } from "../../types/models";
-import { useGoogleAuth } from "../../components/app";
+import { useGoogleAuth, useAccess } from "../../components/app";
 import { getRealtors } from "../../api/realtors";
 import { getAccessToken } from "../../api/api";
 
@@ -143,6 +143,7 @@ const Apartments: FunctionComponent = () => {
             lon: 0,
         });
 
+    const [{ canEditApartments }] = useAccess();
     const contents = (a: LoadingState<readonly Apartment[]>): JSX.Element => {
         switch (a.tag) {
             case "Error":
@@ -186,7 +187,9 @@ const Apartments: FunctionComponent = () => {
                             }
                             setEditing={setEditing}
                         />
-                        <Button onClick={addApartment}>+</Button>
+                        {canEditApartments ? (
+                            <Button onClick={addApartment}>+</Button>
+                        ) : null}
                     </Fragment>
                 );
         }

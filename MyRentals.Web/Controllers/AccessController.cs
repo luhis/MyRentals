@@ -23,7 +23,7 @@
             var email = this.User.GetEmailAddress();
             var realtorOrAdmin = await this.simpleRequirements.IsAdminOrRealtor(email);
             var admin = this.simpleRequirements.IsAdmin(email);
-            return new AccessModel(true, realtorOrAdmin, admin);
+            return new AccessModel(true, realtorOrAdmin, realtorOrAdmin, admin);
         }
     }
 }

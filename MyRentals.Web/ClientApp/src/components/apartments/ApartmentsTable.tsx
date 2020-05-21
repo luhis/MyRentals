@@ -1,7 +1,8 @@
-import { h, FunctionComponent } from "preact";
+import { h, FunctionComponent, Fragment } from "preact";
 import { Table, Button } from "rbx";
 
 import { Apartment } from "../../types/models";
+import { useAccess } from "../app";
 
 interface Props {
     apartments: readonly Apartment[];
@@ -14,6 +15,7 @@ const ApartmentsTable: FunctionComponent<Props> = ({
     deleteApartment,
     setEditing,
 }) => {
+    const [{ canEditApartments }] = useAccess();
     return (
         <Table>
             <Table.Head>
@@ -35,20 +37,28 @@ const ApartmentsTable: FunctionComponent<Props> = ({
                         <Table.Cell>{apartment.pricePerMonth}</Table.Cell>
                         <Table.Cell>{apartment.numberOfRooms}</Table.Cell>
                         <Table.Cell>
-                            <Button
-                                className="btn btn-primary mr-1"
-                                onClick={(): void => setEditing(apartment)}
-                            >
-                                Edit
-                            </Button>
-                            <Button
-                                className="btn btn-primary"
-                                onClick={(): void =>
-                                    deleteApartment(apartment.apartmentId)
-                                }
-                            >
-                                X
-                            </Button>
+                            {canEditApartments ? (
+                                <Fragment>
+                                    <Button
+                                        className="btn btn-primary mr-1"
+                                        onClick={(): void =>
+                                            setEditing(apartment)
+                                        }
+                                    >
+                                        Edit
+                                    </Button>
+                                    <Button
+                                        className="btn btn-primary"
+                                        onClick={(): void =>
+                                            deleteApartment(
+                                                apartment.apartmentId
+                                            )
+                                        }
+                                    >
+                                        X
+                                    </Button>
+                                </Fragment>
+                            ) : null}
                         </Table.Cell>
                     </Table.Row>
                 ))}

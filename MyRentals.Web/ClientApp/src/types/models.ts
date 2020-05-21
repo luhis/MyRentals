@@ -84,6 +84,7 @@ export interface GoogleAuth {
 
 export interface Access {
     canViewApartments: boolean;
+    canEditApartments: boolean;
     canViewRealtors: boolean;
     canViewClients: boolean;
 }
