@@ -56,7 +56,7 @@
         "incremental": true,
         "noEmitOnError": true,
         "forceConsistentCasingInFileNames": true,
-        "strictPropertyInitialization": true,
+        "strictPropertyInitialization": true,, "src/tests/__mocks__/setupTests.js"
         "strictFunctionTypes": true
     },
     "include": ["src/**/*.tsx", "src/**/*.ts"]
