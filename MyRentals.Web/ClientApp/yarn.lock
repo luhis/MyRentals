@@ -4119,10 +4119,10 @@ eslint-visitor-keys@^1.1.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz#e2a82cea84ff246ad6fb57f9bde5b46621459ec2"
   integrity sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
 
-eslint@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.0.0.tgz#c35dfd04a4372110bd78c69a8d79864273919a08"
-  integrity sha512-qY1cwdOxMONHJfGqw52UOpZDeqXy8xmD0u8CT6jIstil72jkhURC704W8CFyTPDPllz4z4lu0Ql1+07PG/XdIg==
+eslint@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.1.0.tgz#d9a1df25e5b7859b0a3d86bb05f0940ab676a851"
+  integrity sha512-DfS3b8iHMK5z/YLSme8K5cge168I8j8o1uiVmFCgnnjxZQbCGyraF8bMl7Ju4yfBmCuxD7shOF7eqGkcuIHfsA==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"
@@ -9573,10 +9573,10 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-sirv-cli@1.0.0-next.4:
-  version "1.0.0-next.4"
-  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-1.0.0-next.4.tgz#fead9328012d6154f28b4fb8a4ac247c8a1de2e5"
-  integrity sha512-438y3j555XS4VEfdKzsW+xdlNKz37V7F0X5/n2aw0wqsdq+TQVAD+yTbazQjK9w1YVliXATGL+u2/pmZMsH5/g==
+sirv-cli@1.0.0-next.5:
+  version "1.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/sirv-cli/-/sirv-cli-1.0.0-next.5.tgz#5ce7c7c3400ecc7937fcba48a10394b3356fdbb1"
+  integrity sha512-2p59n/77FUZ5cTBu+mt63pQIyk0fIgHlTsivTybvd8za+RrUSqstzNzxkH/M7VnwYD2NnlrzYDo61AdyMJP8DQ==
   dependencies:
     console-clear "^1.1.0"
     get-port "^3.2.0"
@@ -9584,13 +9584,13 @@ sirv-cli@1.0.0-next.4:
     local-access "^1.0.1"
     sade "^1.6.0"
     semiver "^1.0.0"
-    sirv "^1.0.0-next.4"
+    sirv "^1.0.0-next.5"
     tinydate "^1.0.0"
 
-sirv@^1.0.0-next.4:
-  version "1.0.0-next.4"
-  resolved "https://registry.yarnpkg.com/sirv/-/sirv-1.0.0-next.4.tgz#80ed871f8cbc23bca2da987f5ffa2fd17e181977"
-  integrity sha512-yZXgECqPpPVR1eYRSlyl1Uv4PyMUIAigobSTmT6Zm2TOdnklfWQz6nlW3jJFsAcbo/MFUeC0fJCpwjxBoV+iwg==
+sirv@^1.0.0-next.5:
+  version "1.0.0-next.5"
+  resolved "https://registry.yarnpkg.com/sirv/-/sirv-1.0.0-next.5.tgz#d62f4297145c53b30935b279535a25b1189ce03d"
+  integrity sha512-KpM5Hu3xp8NzkPg6ht0tiyOrRa2wAMtZm8/eVzw3L9NcyHSP1uUuWc/BIAbQySVOi9TxSl2UCzadaLyYbWiT/A==
   dependencies:
     "@polka/url" "^1.0.0-next.9"
     mime "^2.3.1"
