@@ -53,15 +53,11 @@ const Apartments: FunctionComponent = () => {
     };
 
     const populateRealtorData = async (auth: GoogleAuth): Promise<void> => {
-        try {
-            const data = await getRealtors(getAccessToken(auth));
-            setState((s) => ({
-                ...s,
-                realtors: data,
-            }));
-        } catch (e) {
-            console.log(e);
-        }
+        const data = await getRealtors(getAccessToken(auth));
+        setState((s) => ({
+            ...s,
+            realtors: data,
+        }));
     };
     const save = async (auth: GoogleAuth): Promise<void> => {
         try {
