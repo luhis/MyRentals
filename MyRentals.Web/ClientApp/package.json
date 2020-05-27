@@ -23,9 +23,10 @@
     "build/*"
   ],
   "dependencies": {
+    "@types/google-map-react": "^1.1.7",
     "enzyme": "3.11.0",
     "enzyme-adapter-preact-pure": "2.2.0",
-    "google-maps-react": "2.0.6",
+    "google-map-react": "^1.1.7",
     "preact": "10.4.4",
     "preact-cli-plugin-env-vars": "1.2.1",
     "preact-markup": "2.0.0",
@@ -51,7 +52,7 @@
     "jest": "26.0.1",
     "jest-preset-preact": "1.0.0",
     "lint-staged": "10.2.6",
-    "preact-cli": "3.0.0-rc.13",
+    "preact-cli": "3.0.0-rc.10",
     "prettier": "2.0.5",
     "sirv-cli": "1.0.0-next.5",
     "typescript": "3.9.3",

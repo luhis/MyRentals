@@ -1,23 +1,8 @@
 import { h, FunctionComponent } from "preact";
-import {
-    Map as ImportedMap,
-    GoogleApiWrapper,
-    Marker as ImportedMarker,
-    GoogleAPI,
-    IMapProps,
-} from "google-maps-react";
+import GoogleMapReact from "google-map-react";
 
 import { GoogleApiKey } from "../../consts";
 import { Apartment } from "../../types/models";
-
-const Map = (ImportedMap as unknown) as FunctionComponent<IMapProps>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Marker = (ImportedMarker as unknown) as FunctionComponent<any>;
-
-const mapStyles = {
-    width: "100%",
-    height: "100%",
-};
 
 const london: LatLng = {
     lat: 51.5074,
@@ -26,7 +11,6 @@ const london: LatLng = {
 
 interface Props {
     apartments: readonly Apartment[];
-    google: GoogleAPI;
 }
 
 interface LatLng {
@@ -39,25 +23,30 @@ const getLocation = (apart: Apartment): LatLng => ({
     lng: apart.lon,
 });
 
-const MapContainer: FunctionComponent<Props> = ({ apartments, google }) => {
+const MapContainer: FunctionComponent<Props> = ({ apartments }) => {
     const centre = apartments.length ? getLocation(apartments[0]) : london;
     return (
-        <div>
-            <Map google={google} style={mapStyles} center={centre}>
+        <div style={{ height: "100vh", width: "100%" }}>
+            <GoogleMapReact
+                bootstrapURLKeys={{ key: GoogleApiKey }}
+                defaultCenter={centre}
+                defaultZoom={12}
+            >
                 {apartments.map((a) => (
                     <Marker
                         key={a.apartmentId}
-                        position={getLocation(a)}
-                        name="Apartment"
+                        lat={a.lat}
+                        lng={a.lon}
+                        text="Apartment"
                     />
                 ))}
-            </Map>
+            </GoogleMapReact>
         </div>
     );
 };
 
-const wrapped: FunctionComponent<Omit<Props, "google">> = GoogleApiWrapper({
-    apiKey: GoogleApiKey,
-})(MapContainer);
+const Marker: FunctionComponent<{ lat: number; lng: number; text: string }> = (
+    props
+) => <span {...props} />;
 
-export default wrapped;
+export default MapContainer;
