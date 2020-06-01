@@ -11,10 +11,10 @@ export const getClients = async (
 ): Promise<ApiResponse<readonly Client[]>> =>
     toApiResponse(async () => {
         const response = await fetch("client", {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: token ? `Bearer ${token}` : "" },
         });
         throwIfNotOk(response);
-        return await response.json();
+        return (await response.json()) as Client[];
     });
 
 export const deleteClient = async (
@@ -23,7 +23,7 @@ export const deleteClient = async (
 ): Promise<void> => {
     const response = await fetch(`client/${clientId}`, {
         method: "delete",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: token ? `Bearer ${token}` : "" },
     });
     throwIfNotOk(response);
 };
@@ -37,7 +37,7 @@ export const putClient = async (
         body: JSON.stringify(client),
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
         },
     });
     throwIfNotOk(response);
@@ -52,7 +52,7 @@ export const postClient = async (
         body: JSON.stringify(client),
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
         },
     });
     throwIfNotOk(response);

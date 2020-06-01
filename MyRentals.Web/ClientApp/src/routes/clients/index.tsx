@@ -66,7 +66,7 @@ const Clients: FunctionComponent = () => {
     const auth = useGoogleAuth();
 
     useEffect(() => {
-        populateClientData(auth);
+        void populateClientData(auth);
     }, [auth]);
 
     const setEditing = (client: EditableClient | undefined): void => {

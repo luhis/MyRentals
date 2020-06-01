@@ -59,8 +59,8 @@ const Realtors: FunctionComponent = () => {
         }
     };
     const auth = useGoogleAuth();
-    useEffect(() => {
-        populateRealtorData(auth);
+    useEffect((): void => {
+        void populateRealtorData(auth);
     }, [auth]);
 
     const setEditing = (realtor: EditableRealtor | undefined): void => {

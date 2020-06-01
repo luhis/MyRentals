@@ -11,7 +11,7 @@ import {
 } from "rbx";
 
 import { Realtor, EditableApartment } from "../../types/models";
-import { OnChange } from "../../types/inputs";
+import { OnChange, OnChangeCheck } from "../../types/inputs";
 
 const stringOrFloat = (s: string): string | number => {
     const pattern = /([-])?([0-9]+)/g;
@@ -132,7 +132,7 @@ const ModalX: FunctionComponent<Props> = ({
                         <Label>
                             <Checkbox
                                 checked={apartment.isRented}
-                                onChange={(e: any): void =>
+                                onChange={(e: OnChangeCheck): void =>
                                     setField({ isRented: e.target.checked })
                                 }
                             />

@@ -11,11 +11,11 @@ export const getRealtors = async (
 ): Promise<ApiResponse<readonly Realtor[]>> =>
     toApiResponse(async () => {
         const response = await fetch("realtor", {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: token ? `Bearer ${token}` : "" },
         });
 
         throwIfNotOk(response);
-        return await response.json();
+        return (await response.json()) as Realtor[];
     });
 
 export const deleteRealtor = async (
@@ -24,7 +24,7 @@ export const deleteRealtor = async (
 ): Promise<void> => {
     const response = await fetch(`realtor/${realtorId}`, {
         method: "delete",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: token ? `Bearer ${token}` : "" },
     });
     throwIfNotOk(response);
 };
@@ -38,7 +38,7 @@ export const putRealtor = async (
         body: JSON.stringify(realtor),
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
         },
     });
     throwIfNotOk(response);
@@ -53,7 +53,7 @@ export const postRealtor = async (
         body: JSON.stringify(realtor),
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
         },
     });
     throwIfNotOk(response);

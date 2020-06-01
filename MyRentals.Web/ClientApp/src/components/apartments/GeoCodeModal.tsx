@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { h, FunctionComponent } from "preact";
 import Geocode from "react-geocode";
 import { Button, Modal, Label, Input, Field } from "rbx";

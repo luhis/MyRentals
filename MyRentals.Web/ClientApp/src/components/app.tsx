@@ -14,6 +14,7 @@ import { GoogleAuth, Access } from "../types/models";
 import "rbx/index.css";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 if ((module as any).hot) {
     // tslint:disable-next-line:no-var-requires
     require("preact/debug");

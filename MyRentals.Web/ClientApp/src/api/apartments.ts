@@ -16,10 +16,10 @@ export const getApartments = async (
             Object.entries(filters).filter(([_, val]) => val !== null)
         ).toString();
         const response = await fetch(`apartment?${params}`, {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: { Authorization: token ? `Bearer ${token}` : "" },
         });
         throwIfNotOk(response);
-        return await response.json();
+        return (await response.json()) as readonly Apartment[];
     });
 
 export const deleteApartment = async (
@@ -28,7 +28,7 @@ export const deleteApartment = async (
 ): Promise<void> => {
     const response = await fetch(`apartment/${apartmentId}`, {
         method: "delete",
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: token ? `Bearer ${token}` : "" },
     });
     throwIfNotOk(response);
 };
@@ -37,14 +37,17 @@ export const putApartment = async (
     token: string | undefined,
     apartment: EditableApartment
 ): Promise<void> => {
-    const response = await fetch(`apartment/${apartment.apartmentId}`, {
-        method: "put",
-        body: JSON.stringify(apartment),
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-    });
+    const response = await fetch(
+        `apartment/${apartment.apartmentId ? apartment.apartmentId : -1}`,
+        {
+            method: "put",
+            body: JSON.stringify(apartment),
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: token ? `Bearer ${token}` : "",
+            },
+        }
+    );
     throwIfNotOk(response);
 };
 
@@ -57,7 +60,7 @@ export const postApartment = async (
         body: JSON.stringify(apartment),
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
+            Authorization: token ? `Bearer ${token}` : "",
         },
     });
     throwIfNotOk(response);

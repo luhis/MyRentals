@@ -63,9 +63,9 @@ const Apartments: FunctionComponent = () => {
         try {
             if (state.editing) {
                 if (state.editing.apartmentId !== undefined) {
-                    putApartment(getAccessToken(auth), state.editing);
+                    await putApartment(getAccessToken(auth), state.editing);
                 } else {
-                    postApartment(getAccessToken(auth), state.editing);
+                    await postApartment(getAccessToken(auth), state.editing);
                 }
                 await populateApartmentData(auth);
             }
@@ -82,10 +82,10 @@ const Apartments: FunctionComponent = () => {
     };
     const auth = useGoogleAuth();
     useEffect(() => {
-        populateRealtorData(auth);
+        void populateRealtorData(auth);
     }, [auth]);
     useEffect(() => {
-        populateApartmentData(auth);
+        void populateApartmentData(auth);
     }, [auth]);
 
     const setValue = (name: Partial<Filters>): void => {

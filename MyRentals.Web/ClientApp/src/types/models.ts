@@ -84,7 +84,7 @@ export const toApiResponse = async <T>(
     try {
         return { tag: "Loaded", value: await f() };
     } catch (e) {
-        return { tag: "Error", value: e.toString() };
+        return { tag: "Error", value: "API error" };
     }
 };
 
