@@ -6,5 +6,5 @@ export const getAccess = async (token: string | undefined): Promise<Access> => {
         headers: { Authorization: `Bearer ${token}` },
     });
     throwIfNotOk(response);
-    return await response.json();
+    return (await response.json()) as Access;
 };
