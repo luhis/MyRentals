@@ -37,9 +37,9 @@
     "react-use-googlelogin": "0.12.5"
   },
   "devDependencies": {
-    "@types/jest": "26.0.0",
-    "@types/react-geocode": "0.2.0",
-    "@types/webpack-env": "1.15.2",
+    "@types/jest": "26.0.24",
+    "@types/react-geocode": "0.2.4",
+    "@types/webpack-env": "1.18.5",
     "@typescript-eslint/eslint-plugin": "3.7.0",
     "@typescript-eslint/parser": "3.7.0",
     "css-loader": "1.0.1",
